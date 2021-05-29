@@ -1,0 +1,5 @@
+rootProject.name = "Arch-2021"
+include ':app'
+include ':home'
+include ':core'
+include ':network'
