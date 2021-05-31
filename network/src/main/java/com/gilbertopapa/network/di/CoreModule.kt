@@ -1,9 +1,19 @@
 package com.gilbertopapa.network.di
 
+import androidx.room.Room
+import com.gilbertopapa.network.BuildConfig
 import com.gilbertopapa.network.api.ApiService
+import com.gilbertopapa.network.domain.repository.IGamesRepository
+import com.gilbertopapa.network.local.room.GamesDatabase
+import com.gilbertopapa.network.source.GamesRepository
+import com.gilbertopapa.network.source.LocalDataSource
+import com.gilbertopapa.network.source.RemoteDataSource
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -37,5 +47,37 @@ var apiModule = module {
             .client(get())
             .build()
         retrofit.create(ApiService::class.java)
+    }
+}
+val databaseModule = module {
+    factory {
+        get<GamesDatabase>().blownDao()
+    }
+    single {
+        val passPhrase: ByteArray = SQLiteDatabase.getBytes("arudo".toCharArray())
+        val supportFactory = SupportFactory(passPhrase)
+        Room
+            .databaseBuilder(
+                androidContext(),
+                GamesDatabase::class.java,
+                "Blown.db"
+            )
+            .fallbackToDestructiveMigration()
+            .openHelperFactory(supportFactory)
+            .build()
+    }
+}
+val repositoryModule = module {
+    factory {
+//        BuildConfig.KEY
+    }
+    single {
+        LocalDataSource(get())
+    }
+    single {
+        RemoteDataSource(get(), get(), get())
+    }
+    single<IGamesRepository> {
+        GamesRepository(get(), get())
     }
 }
