@@ -1,7 +1,7 @@
 package com.gilbertopapa.network.utils
 
-import com.gilbertopapa.network.api.ApiResponse
-import com.gilbertopapa.network.local.Resource
+import com.gilbertopapa.network.source.remote.local.Resource
+import com.gilbertopapa.network.source.remote.network.ApiResponse
 import kotlinx.coroutines.flow.*
 
 fun <ResultType, RequestType> networkBoundResource(

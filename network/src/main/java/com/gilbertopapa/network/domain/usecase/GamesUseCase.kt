@@ -1,10 +1,10 @@
 package com.gilbertopapa.network.domain.usecase
 
 import androidx.paging.PagedList
-import com.gilbertopapa.network.domain.model.FavoriteGames
-import com.gilbertopapa.network.domain.model.Games
+import com.gilbertopapa.network.domain.FavoriteGames
+import com.gilbertopapa.network.domain.Games
 import com.gilbertopapa.network.domain.repository.IGamesRepository
-import com.gilbertopapa.network.local.Resource
+import com.gilbertopapa.network.source.remote.local.Resource
 import kotlinx.coroutines.flow.Flow
 
 class GamesUseCase(private val iGamesRepository: IGamesRepository) : IGamesUseCase {

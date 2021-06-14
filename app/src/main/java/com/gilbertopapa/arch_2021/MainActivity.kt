@@ -1,11 +1,29 @@
 package com.gilbertopapa.arch_2021
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.LayoutInflater
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.gilbertopapa.arch_2021.databinding.ActivityMainBinding
+import com.gilbertopapa.ui.BaseViewBindingActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseViewBindingActivity<ActivityMainBinding>() {
+
+    override val inflate: (LayoutInflater) -> ActivityMainBinding
+        get() = ActivityMainBinding::inflate
+
+    override fun onResume() {
+        super.onResume()
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home, R.id.navigation_search, R.id.navigation_favorite
+            )
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 }

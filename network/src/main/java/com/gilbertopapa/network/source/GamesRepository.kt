@@ -3,11 +3,13 @@ package com.gilbertopapa.network.source
 import androidx.lifecycle.asFlow
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.gilbertopapa.network.domain.model.FavoriteGames
-import com.gilbertopapa.network.domain.model.Games
+import com.gilbertopapa.network.domain.FavoriteGames
+import com.gilbertopapa.network.domain.Games
 import com.gilbertopapa.network.domain.repository.IGamesRepository
-import com.gilbertopapa.network.local.Resource
-import com.gilbertopapa.network.local.entity.FavoriteGamesEntity
+import com.gilbertopapa.network.source.remote.RemoteDataSource
+import com.gilbertopapa.network.source.remote.local.LocalDataSource
+import com.gilbertopapa.network.source.remote.local.Resource
+import com.gilbertopapa.network.source.remote.local.entity.FavoriteGamesEntity
 import com.gilbertopapa.network.utils.DataMapper
 import com.gilbertopapa.network.utils.networkBoundResource
 import kotlinx.coroutines.flow.Flow

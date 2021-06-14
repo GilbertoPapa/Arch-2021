@@ -1,12 +1,11 @@
 package com.gilbertopapa.network.utils
 
-import com.gilbertopapa.network.domain.model.FavoriteGames
-import com.gilbertopapa.network.domain.model.Games
-import com.gilbertopapa.network.local.entity.FavoriteGamesEntity
-import com.gilbertopapa.network.local.entity.GamesEntity
-import com.gilbertopapa.network.response.DetailGamesResponse
-import com.gilbertopapa.network.response.GamesResponse
-
+import com.gilbertopapa.network.domain.FavoriteGames
+import com.gilbertopapa.network.domain.Games
+import com.gilbertopapa.network.source.remote.local.entity.FavoriteGamesEntity
+import com.gilbertopapa.network.source.remote.local.entity.GamesEntity
+import com.gilbertopapa.network.source.remote.response.DetailGamesResponse
+import com.gilbertopapa.network.source.remote.response.GamesResponse
 
 object DataMapper {
 

@@ -1,11 +1,14 @@
 package com.gilbertopapa.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.gilbertopapa.core.backgroundImageContainer
-import com.gilbertopapa.home.databinding.ItemGameBinding
-import com.gilbertopapa.network.domain.model.Games
+import com.gilbertopapa.network.domain.Games
+import com.gilbertopapa.core.databinding.ItemGameBinding
+import com.gilbertopapa.core.utils.backgroundImageContainer
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
     private val gamesData = ArrayList<Games>()

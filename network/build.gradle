@@ -2,20 +2,23 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
-apply from: '../shared_dependencies.gradle'
+apply from: '../dependencies.gradle'
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 26
+        minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        buildConfigField("String", "KEY", "\"3421c8b0cfc84aa1b7fa27bc9c59e47b\"")
     }
 
     buildTypes {
@@ -34,15 +37,6 @@ android {
 }
 
 dependencies {
-    implementation "androidx.room:room-runtime:$room_version"
-    implementation "androidx.room:room-ktx:$room_version"
-    implementation "com.squareup.retrofit2:retrofit:$squereup_retrofit2_version"
-    implementation "com.squareup.retrofit2:converter-gson:$squereup_retrofit2_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$squareup_okhttp3_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$jetbrains_kotlinx_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$jetbrains_kotlinx_version"
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.sqlite:sqlite-ktx:$sqlite_version"
-    implementation "net.zetetic:android-database-sqlcipher:$zetetic_version"
+    api networkDependencies.values()
+    kapt roomCompiler.values()
 }

@@ -1,0 +1,132 @@
+ext {
+
+    final core_version = "1.3.2"
+    final appcompact_version = "1.2.0"
+    final google_android_material_version = "1.2.1"
+    final constraint_layout_version = "2.0.4"
+    final junit_version = "4.13.1"
+    final ext_version = "1.1.2"
+    final expresso_version = "3.3.0"
+    final squereup_retrofit2_version = "2.9.0"
+    final room_version = "2.2.6"
+    final squareup_okhttp3_version = "5.0.0-alpha.2"
+    final paging_version = "2.1.2"
+    final lifecycle_version = "2.3.0"
+    final navigation_version = "2.3.4"
+    final github_bumptech_glide_version = "4.11.0"
+    final swiperefeshlayout_version = "1.1.0"
+    final jetbrains_kotlinx_version = "1.4.2"
+    final koin_version = "2.1.6"
+    final squareup_leakcanary_version = "2.6"
+    final zetetic_version = "4.4.2"
+    final sqlite_version = "2.1.0"
+    final airbnb_android_version = "3.4.2"
+    final facebook_shimmer_version = "0.5.0"
+    final multidex_version = "2.0.0"
+
+    //Koin
+    final koin_core = "org.koin:koin-core:$koin_version"
+    final koin_android = "org.koin:koin-android:$koin_version"
+    final koin_android_viewmodel = "org.koin:koin-android-viewmodel:$koin_version"
+
+    //Kotlin
+    final kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    final coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$jetbrains_kotlinx_version"
+    final coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$jetbrains_kotlinx_version"
+
+    //Retrofit
+    final retrofit2 = "com.squareup.retrofit2:retrofit:$squereup_retrofit2_version"
+    final retrofit2_converter_gson = "com.squareup.retrofit2:converter-gson:$squereup_retrofit2_version"
+    final logging_interceptor = "com.squareup.okhttp3:logging-interceptor:$squareup_okhttp3_version"
+
+    //Android
+    final navigation_fragment = "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    final navigation_ui = "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    final paging_runtime = "androidx.paging:paging-runtime-ktx:$paging_version"
+    final room_runtime = "androidx.room:room-runtime:$room_version"
+    final room = "androidx.room:room-ktx:$room_version"
+    final sqlite = "androidx.sqlite:sqlite-ktx:$sqlite_version"
+    final lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    final lifecycle_livedata = "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    final room_compiler = "androidx.room:room-compiler:$room_version"
+    final android_core = "androidx.core:core-ktx:$core_version"
+    final appcompat = "androidx.appcompat:appcompat:$appcompact_version"
+    final constraintlayout = "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    final swiperefreshlayout = "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefeshlayout_version"
+    final dynamic_features = "androidx.navigation:navigation-dynamic-features-fragment:$navigation_version"
+    final multidex = "androidx.multidex:multidex:$multidex_version"
+
+    //External
+    final sqlcipher = "net.zetetic:android-database-sqlcipher:$zetetic_version"
+    final material = "com.google.android.material:material:$google_android_material_version"
+    final glide = "com.github.bumptech.glide:glide:$github_bumptech_glide_version"
+    final lottie = "com.airbnb.android:lottie:$airbnb_android_version"
+    final shimmer = "com.facebook.shimmer:shimmer:$facebook_shimmer_version"
+
+    //Test
+    final junit = "junit:junit:$junit_version"
+    final androidx_junit = "androidx.test.ext:junit:$ext_version"
+    final espresso_core = "androidx.test.espresso:espresso-core:$expresso_version"
+
+    //Core
+    final android_bases = "com.github.GilbertoPapa:AndroidBases:0.1.0"
+
+    coreDependencies = [
+            'glide'             : glide,
+            'swiperefreshlayout': swiperefreshlayout,
+            'constraintlayout'  : constraintlayout,
+            'android_core'      : android_core
+    ]
+
+    networkDependencies = [
+            'retrofit2'               : retrofit2,
+            'retrofit2_converter_gson': retrofit2_converter_gson,
+            'logging_interceptor'     : logging_interceptor,
+            'room_runtime'            : room_runtime,
+            'room'                    : room,
+            'coroutines_core'         : coroutines_core,
+            'coroutines_android'      : coroutines_android,
+            'sqlcipher'               : sqlcipher,
+            'sqlite'                  : sqlite,
+            'lifecycle_viewmodel'     : lifecycle_viewmodel,
+            'lifecycle_livedata'      : lifecycle_livedata,
+            'koin_core'               : koin_core,
+            'koin_android'            : koin_android,
+            'paging_runtime'          : paging_runtime
+    ]
+
+    roomCompiler = [
+            'room_compiler': room_compiler
+    ]
+
+
+    homeDependencies = [
+            'android_bases'         : android_bases,
+            'kotlin_stdlib'         : kotlin_stdlib,
+            'constraintlayout'      : constraintlayout,
+            'lifecycle_viewmodel'   : lifecycle_viewmodel,
+            'koin_android_viewmodel': koin_android_viewmodel,
+            'android_core'          : android_core,
+            'shimmer'               : shimmer,
+            'lifecycle_livedata'    : lifecycle_livedata,
+            'appcompat'             : appcompat,
+            'material'              : material,
+            'lottie'                : lottie,
+            'navigation_fragment'   : navigation_fragment,
+            'navigation_ui'         : navigation_ui
+
+    ]
+
+    appDependencies = [
+            'android_bases'         : android_bases,
+            'dynamic_features'      : dynamic_features,
+            'multidex'              : multidex,
+            'kotlin_stdlib'         : kotlin_stdlib,
+            'material'              : material,
+            'constraintlayout'      : constraintlayout,
+            'koin_android_viewmodel': koin_android_viewmodel,
+            'navigation_fragment'   : navigation_fragment,
+            'navigation_ui'         : navigation_ui
+    ]
+
+}

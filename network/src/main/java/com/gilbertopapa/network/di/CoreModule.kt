@@ -2,12 +2,12 @@ package com.gilbertopapa.network.di
 
 import androidx.room.Room
 import com.gilbertopapa.network.BuildConfig
-import com.gilbertopapa.network.api.ApiService
 import com.gilbertopapa.network.domain.repository.IGamesRepository
-import com.gilbertopapa.network.local.room.GamesDatabase
 import com.gilbertopapa.network.source.GamesRepository
-import com.gilbertopapa.network.source.LocalDataSource
-import com.gilbertopapa.network.source.RemoteDataSource
+import com.gilbertopapa.network.source.remote.RemoteDataSource
+import com.gilbertopapa.network.source.remote.local.LocalDataSource
+import com.gilbertopapa.network.source.remote.local.room.GamesDatabase
+import com.gilbertopapa.network.source.remote.network.ApiService
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
@@ -19,13 +19,34 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-var apiModule = module {
+val databaseModule = module {
+    factory {
+        get<GamesDatabase>().blownDao()
+    }
     single {
-        var hostName = "api.rawg.io"
-        OkHttpClient.Builder().addInterceptor(
-            HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY)
-        )
+        val passPhrase: ByteArray = SQLiteDatabase.getBytes("arudo".toCharArray())
+        val supportFactory = SupportFactory(passPhrase)
+        Room
+            .databaseBuilder(
+                androidContext(),
+                GamesDatabase::class.java,
+                "Blown.db"
+            )
+            .fallbackToDestructiveMigration()
+            .openHelperFactory(supportFactory)
+            .build()
+    }
+}
+
+val apiModule = module {
+    single {
+        val hostName = "api.rawg.io"
+        OkHttpClient
+            .Builder()
+            .addInterceptor(
+                HttpLoggingInterceptor()
+                    .setLevel(HttpLoggingInterceptor.Level.BODY)
+            )
             .connectTimeout(120, TimeUnit.SECONDS)
             .readTimeout(120, TimeUnit.SECONDS)
             .certificatePinner(
@@ -49,27 +70,10 @@ var apiModule = module {
         retrofit.create(ApiService::class.java)
     }
 }
-val databaseModule = module {
-    factory {
-        get<GamesDatabase>().blownDao()
-    }
-    single {
-        val passPhrase: ByteArray = SQLiteDatabase.getBytes("arudo".toCharArray())
-        val supportFactory = SupportFactory(passPhrase)
-        Room
-            .databaseBuilder(
-                androidContext(),
-                GamesDatabase::class.java,
-                "Blown.db"
-            )
-            .fallbackToDestructiveMigration()
-            .openHelperFactory(supportFactory)
-            .build()
-    }
-}
+
 val repositoryModule = module {
     factory {
-//        BuildConfig.KEY
+        BuildConfig.KEY
     }
     single {
         LocalDataSource(get())
