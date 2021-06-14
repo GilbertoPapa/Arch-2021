@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import com.gilbertopapa.core.utils.Status
 import com.gilbertopapa.home.databinding.FragmentHomeBinding
 import com.gilbertopapa.network.source.remote.local.Resource
-import com.gilbertopapa.ui.BaseViewBindingFragment
+import com.gilbertopapa.ui.BaseFragment
+import com.gilbertopapa.view.gone
+import com.gilbertopapa.view.visible
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     override val inflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding
         get() = FragmentHomeBinding::inflate
@@ -36,9 +38,9 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>() {
     }
 
     private fun initViews() {
-        binding.notificationLoading.visibility = View.VISIBLE
-        binding.notificationError.root.visibility = View.GONE
-        binding.rvHorizontalGame.visibility = View.GONE
+        binding.notificationLoading.visible()
+        binding.notificationError.root.gone()
+        binding.rvHorizontalGame.gone()
     }
 
     private fun initObserver() {
@@ -61,19 +63,19 @@ class HomeFragment : BaseViewBindingFragment<FragmentHomeBinding>() {
     }
 
     private fun statusLayoutVisibility(status: Status) {
-        binding.notificationLoading.visibility = View.GONE
-        binding.notificationError.root.visibility = View.GONE
-        binding.rvHorizontalGame.visibility = View.GONE
+        binding.notificationLoading.gone()
+        binding.notificationError.root.gone()
+        binding.rvHorizontalGame.gone()
 
         when (status) {
             Status.Success -> {
-                binding.rvHorizontalGame.visibility = View.VISIBLE
+                binding.rvHorizontalGame.visible()
             }
             Status.Error -> {
-                binding.notificationError.root.visibility = View.VISIBLE
+                binding.notificationError.root.visible()
             }
             Status.Loading -> {
-                binding.notificationLoading.visibility = View.VISIBLE
+                binding.notificationLoading.visible()
             }
         }
     }

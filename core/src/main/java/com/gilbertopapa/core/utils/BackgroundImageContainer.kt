@@ -1,4 +1,4 @@
-package com.gilbertopapa.core
+package com.gilbertopapa.core.utils
 
 import android.app.Activity
 import android.content.Context
@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import com.gilbertopapa.core.R
 
 fun backgroundImageContainer(
     context: Context? = null,

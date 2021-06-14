@@ -6,10 +6,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gilbertopapa.arch_2021.databinding.ActivityMainBinding
-import com.gilbertopapa.ui.BaseViewBindingActivity
+import com.gilbertopapa.ui.BaseActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : BaseViewBindingActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override val inflate: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate

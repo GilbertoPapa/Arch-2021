@@ -69,7 +69,7 @@ ext {
     final espresso_core = "androidx.test.espresso:espresso-core:$expresso_version"
 
     //Core
-    final android_bases = "com.github.GilbertoPapa:AndroidBases:0.1.0"
+    final android_bases = "com.github.GilbertoPapa:AndroidBases:0.1.1"
 
     coreDependencies = [
             'glide'             : glide,
