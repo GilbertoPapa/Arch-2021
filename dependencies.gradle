@@ -67,12 +67,14 @@ ext {
     final junit = "junit:junit:$junit_version"
     final androidx_junit = "androidx.test.ext:junit:$ext_version"
     final espresso_core = "androidx.test.espresso:espresso-core:$expresso_version"
+    final mockito_core = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
 
     //Core
-    final android_bases = "com.github.GilbertoPapa:AndroidBases:0.1.1"
+    final android_bases = "com.github.GilbertoPapa:AndroidBases:0.1.2"
 
     coreDependencies = [
             'glide'             : glide,
+            'material'          : material,
             'swiperefreshlayout': swiperefreshlayout,
             'constraintlayout'  : constraintlayout,
             'android_core'      : android_core
@@ -113,8 +115,14 @@ ext {
             'material'              : material,
             'lottie'                : lottie,
             'navigation_fragment'   : navigation_fragment,
-            'navigation_ui'         : navigation_ui
+            'navigation_ui'         : navigation_ui,
+            'mockito_core'          : mockito_core
 
+    ]
+
+    testDependencies = [
+            'junit'         : junit,
+            'androidx_junit': androidx_junit
     ]
 
     appDependencies = [

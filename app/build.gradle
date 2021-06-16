@@ -14,6 +14,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -23,6 +24,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "arch"
+    productFlavors {
+        night {
+            dimension "arch"
+            applicationIdSuffix ".night"
+            versionNameSuffix "-night"
+        }
+        day {
+            dimension "arch"
+            applicationIdSuffix ".day"
+            versionNameSuffix "-day"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

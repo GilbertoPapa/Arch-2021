@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppColors">
+
+        <attr name="colorPrimaryAlpha" format="color|reference" />
+        <attr name="colorIconsAlpha" format="color|reference" />
+        <attr name="colorCardAlpha" format="color|reference" />
+        <attr name="colorBackgroundAlpha" format="color|reference" />
+
+    </declare-styleable>
+</resources>

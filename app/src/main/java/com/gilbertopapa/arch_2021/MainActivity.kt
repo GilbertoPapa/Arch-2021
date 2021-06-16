@@ -6,17 +6,25 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.gilbertopapa.arch_2021.databinding.ActivityMainBinding
+import com.gilbertopapa.arch_2021.theme.setTheme
 import com.gilbertopapa.ui.BaseActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    private lateinit var navView: BottomNavigationView
 
     override val inflate: (LayoutInflater) -> ActivityMainBinding
         get() = ActivityMainBinding::inflate
 
     override fun onResume() {
         super.onResume()
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView = binding.navView
+        setupNavView()
+        setupTheme()
+    }
+
+    private fun setupNavView() {
         val navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -25,5 +33,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+
+    private fun setupTheme() {
+        supportActionBar?.hide()
+        setTheme(navView)
     }
 }

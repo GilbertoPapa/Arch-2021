@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -41,4 +41,5 @@ dependencies {
     implementation project(":core")
     implementation project(":network")
     implementation homeDependencies.values()
+    testImplementation testDependencies.values()
 }

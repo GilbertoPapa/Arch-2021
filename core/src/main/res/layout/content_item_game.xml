@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/item_game_background"
     android:padding="20dp">
 
     <TextView
@@ -26,6 +27,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/release_date"
         android:paddingBottom="5dp"
+        android:backgroundTint="?attr/colorIconsAlpha"
         app:layout_constraintBottom_toTopOf="@id/txtReleaseDate"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="@id/guideline"
@@ -59,6 +61,7 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/playtime"
         android:paddingBottom="5dp"
+        android:backgroundTint="?attr/colorIconsAlpha"
         app:layout_constraintBottom_toTopOf="@id/txtPlaytime"
         app:layout_constraintLeft_toLeftOf="@id/guideline"
         app:layout_constraintRight_toRightOf="@id/guideline1"

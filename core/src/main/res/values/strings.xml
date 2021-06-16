@@ -8,4 +8,7 @@
     <string name="rating">Rating</string>
     <string name="suggested_by">Suggested</string>
     <string name="image_background_game">Image Background Game</string>
+    <string name="title_home">Home Rawg</string>
+    <string name="title_search">Search Rawg</string>
+    <string name="title_favorite">Favorite Rawg</string>
 </resources>
