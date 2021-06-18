@@ -9,13 +9,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 fun Context.setTheme(navView: BottomNavigationView) {
 
     when(BuildConfig.FLAVOR){
-        Theme.DAY_.segment() -> {
+        Theme.THEME_DAY.segment() -> {
             setTheme(R.style.ThemeDay)
             navView.background = getDrawableResource(R.color.white_F1F6F9, this)
             navView.itemTextColor = getColorStateList(R.color.black)
             navView.itemIconTintList = getColorStateList(R.color.black)
         }
-        Theme.NIGHT_.segment() -> {
+        Theme.THEME_NIGHT.segment() -> {
             setTheme(R.style.ThemeNight)
             navView.background = getDrawableResource(R.color.blue_16213E, this)
             navView.itemTextColor = getColorStateList(R.color.white_F1F6F9)

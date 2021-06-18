@@ -1,10 +1,10 @@
 package com.gilbertopapa.arch_2021.theme
 
 enum class Theme {
-    DAY_ {
+    THEME_DAY {
         override fun segment() = DAY
     },
-    NIGHT_ {
+    THEME_NIGHT {
         override fun segment() = NIGHT
     };
 
