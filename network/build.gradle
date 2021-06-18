@@ -19,6 +19,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
         buildConfigField("String", "KEY", "\"3421c8b0cfc84aa1b7fa27bc9c59e47b\"")
+        buildConfigField("String", "URL", "\"https://api.rawg.io/api/\"")
+        buildConfigField("String", "HOST_NAME", "\"api.rawg.io\"")
+        buildConfigField("String", "DB", "\"Arch.db\"")
     }
 
     buildTypes {

@@ -30,7 +30,7 @@ val databaseModule = module {
             .databaseBuilder(
                 androidContext(),
                 GamesDatabase::class.java,
-                "Blown.db"
+                BuildConfig.DB
             )
             .fallbackToDestructiveMigration()
             .openHelperFactory(supportFactory)
@@ -40,7 +40,7 @@ val databaseModule = module {
 
 val apiModule = module {
     single {
-        val hostName = "api.rawg.io"
+        val hostName = BuildConfig.HOST_NAME
         OkHttpClient
             .Builder()
             .addInterceptor(
@@ -63,7 +63,7 @@ val apiModule = module {
     single {
         val retrofit = Retrofit
             .Builder()
-            .baseUrl("https://api.rawg.io/api/")
+            .baseUrl(BuildConfig.URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
